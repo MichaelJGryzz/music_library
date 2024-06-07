@@ -209,7 +209,7 @@ console.log(library.playlists); // Prints updated library to verify
 console.log("----------");
 
 
-// STRETCH:
+// STRETCH: WILL COME BACK TO COMPLETE AT A LATER DATE!!
 // given a query string string, prints a list of tracks
 // where the name, artist or album contains the query string (case insensitive)
 // tip: use "string".search("tri") 
