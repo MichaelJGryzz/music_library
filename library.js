@@ -31,8 +31,17 @@ const library = {
 // p01: Coding Music - 2 tracks
 // p02: Other Playlist - 1 tracks
 const printPlaylists = function() {
-
+  const playlists = library.playlists;
+  for (const playlistId in playlists) {
+    const playlist = playlists[playlistId];
+    const numTracks = playlist.tracks.length;
+    console.log(`${playlistId}: ${playlist.name} - ${numTracks} tracks`);
+  }
 }
+// Call the printPlaylists function to see the output
+console.log("printPlaylists function output:")
+printPlaylists(library);
+console.log("----------");
 
 
 // prints a list of all tracks, using the following format:
