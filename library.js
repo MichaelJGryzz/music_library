@@ -72,13 +72,24 @@ const printPlaylist = function(playlistId) {
     console.log(`Playlist with id ${playlistId} not fount`);
     return;
   }
-
-
+  
+  const playlistName = playlist.name;
+  const numTracks = playlist.tracks.length;
+  console.log(`${playlist.id}: ${playlist.name} - ${numTracks} tracks`);
+ 
+  playlist.tracks.forEach(function(trackId) {
+    const track = library.tracks[trackId];
+    if (track) {
+      console.log(`${trackId}: ${track.name} by ${track.artist} (${track.album})`);
+    }
+  });
 }
 
 // Call printPlaylist function with given playlist to see its output
-console.log("printPlaylist function output:");
-printPlaylist("po1");
+console.log("printPlaylist function output when given existing playlist name:");
+printPlaylist("p01"); // Call function with existing playlist name
+console.log("printPLaylist function output when given non-existing playlist name:");
+printPlaylist("p08"); // Call function with non-existing playlist name
 console.log("----------");
 
 // adds an existing track to an existing playlist
