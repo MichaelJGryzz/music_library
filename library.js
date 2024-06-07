@@ -140,8 +140,38 @@ const generateUid = function() {
 
 // adds a track to the library
 const addTrack = function(name, artist, album) {
+  for (const trackId in library.tracks) {
+    const track = library.tracks[trackId];
+    if (track.name === name && track.artist === artist && track.album === album) {
+      console.log(`Track ${name} by ${artist} (${album}) already in library.`);
+      return;
+    }
+  }
+  
+  // Generate a unique id for the new track given
+  const id = "t" + generateUid();
 
+  // Create a new track object with the given information
+  const newTrack = {
+    id: id,
+    name: name,
+    artist: artist,
+    album: album
+  };
+
+  // Adds new track to the library
+  library.tracks[id] = newTrack;
+  console.log(`Track ${id} added to the library`);
 }
+
+// Test Code with example usage
+addTrack("New Song", "New Artist", "New Album"); // Given a completely new track
+console.log("addTrack function output when given a new track:");
+console.log(library.tracks); // Prints updated library to verify
+addTrack("Four Thirty-Three", "John Cage", "Woodstock 1952"); // Given a track that is already in the library
+console.log("addTrack function output when given a track that is already in the library:");
+console.log(library.tracks); // Prints updated library to verify
+console.log("----------");
 
 
 // adds a playlist to the library
