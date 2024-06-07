@@ -69,7 +69,7 @@ console.log("----------");
 const printPlaylist = function(playlistId) {
   const playlist = library.playlists[playlistId];
   if (!playlist) {
-    console.log(`Playlist with id ${playlistId} not fount`);
+    console.log(`Playlist with id ${playlistId} not found.`);
     return;
   }
   
@@ -97,16 +97,38 @@ const addTrackToPlaylist = function(trackId, playlistId) {
   const track = library.tracks[trackId];
   const playlist = library.playlists[playlistId];
 
+  // Check if track exists
   if (!track) {
-    console.log(`Track with id ${trackId} does not exit.`);
+    console.log(`Track with id ${trackId} does not exist.`);
     return;
   }
+  // Check if playlist exists
   if (!playlist) {
-    console.log(`Playlist with id ${playlistId} does not exist`);
+    console.log(`Playlist with id ${playlistId} does not exist.`);
     return;
   }
-  
+
+  // Add track to the playlist if it is not already in the playlist
+  if (!playlist.tracks.includes(trackId)) {
+    playlist.tracks.push(trackId);
+    console.log(`${trackId} added to playlist ${playlistId}.`);
+  } else {
+    console.log(`${trackId} is already in playlist ${playlistId}.`);
+  }
 }
+
+// Call addTrackToPlaylist function with track and playlist to see its output
+console.log("addTrackToPlaylist function output when both track and playlist exist and track is not in playlist:");
+addTrackToPlaylist("t03", "p01"); // Add track t03 to playlist p03
+console.log("addTrackToPlaylist function output when track does not exist:");
+addTrackToPlaylist("t06", "p01"); // Track t06 is not added because it does not exist 
+console.log("addTrackToPlaylist function output when both track and playlist do not exist:");
+addTrackToPlaylist("t06", "p04"); // Track t08 is not added to playlist p04 because both track and playlist do not exist
+console.log("addTrackToPlaylist function output when playlist does not exist:");
+addTrackToPlaylist("t01", "p04"); // Track t01 is not added bevause playlist p04 does not exist
+console.log("addTrackToPlaylist function output when track is already in playlist:");
+addTrackToPlaylist("t01", "p01"); // Track t01 is not added to playlist p01 because the track is already in the playlist
+console.log("----------");
 
 
 // generates a unique id
