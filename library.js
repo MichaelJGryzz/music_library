@@ -94,12 +94,23 @@ console.log("----------");
 
 // adds an existing track to an existing playlist
 const addTrackToPlaylist = function(trackId, playlistId) {
+  const track = library.tracks[trackId];
+  const playlist = library.playlists[playlistId];
 
+  if (!track) {
+    console.log(`Track with id ${trackId} does not exit.`);
+    return;
+  }
+  if (!playlist) {
+    console.log(`Playlist with id ${playlistId} does not exist`);
+    return;
+  }
+  
 }
 
 
 // generates a unique id
-// (already implemented: use this for addTrack and addPlaylist)
+// (function already implemented: use this for addTrack and addPlaylist)
 const generateUid = function() {
   return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
 }
