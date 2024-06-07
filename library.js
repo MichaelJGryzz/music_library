@@ -161,15 +161,15 @@ const addTrack = function(name, artist, album) {
 
   // Adds new track to the library
   library.tracks[id] = newTrack;
-  console.log(`Track ${id} added to the library`);
+  console.log(`Track ${id} added to the library.`);
 }
 
 // Test Code with example usage
-addTrack("New Song", "New Artist", "New Album"); // Given a completely new track
 console.log("addTrack function output when given a new track:");
+addTrack("New Song", "New Artist", "New Album"); // Given a completely new track
 console.log(library.tracks); // Prints updated library to verify
-addTrack("Four Thirty-Three", "John Cage", "Woodstock 1952"); // Given a track that is already in the library
 console.log("addTrack function output when given a track that is already in the library:");
+addTrack("Four Thirty-Three", "John Cage", "Woodstock 1952"); // Given a track that is already in the library
 console.log(library.tracks); // Prints updated library to verify
 console.log("----------");
 
@@ -196,15 +196,15 @@ const addPlaylist = function(name) {
 
   // Adds new playlist to the library
   library.playlists[id] = newPlaylist;
-  console.log(`Playlist ${id} added to the library`);
+  console.log(`Playlist ${id} added to the library.`);
 }
 
 // Test Code with example usage
-addPlaylist("New Name"); // Given a completely new playlist
 console.log("addPlaylist function output when given a new playlist:");
+addPlaylist("New Name"); // Given a completely new playlist
 console.log(library.playlists); // Prints updated library to verify
-addPlaylist("Coding Music"); // Given a playlist that is already in the library
 console.log("addPlaylist function output when given a playlist that is already in the library:");
+addPlaylist("Coding Music"); // Given a playlist that is already in the library
 console.log(library.playlists); // Prints updated library to verify
 console.log("----------");
 
