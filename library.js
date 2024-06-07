@@ -176,8 +176,37 @@ console.log("----------");
 
 // adds a playlist to the library
 const addPlaylist = function(name) {
+  for (const playlistId in library.playlists) {
+    const playlist = library.playlists[playlistId];
+    if (playlist.name === name) {
+      console.log(`Playlist ${name} already in library.`);
+      return;
+    }
+  }
+  
+  // Generate a unique id for the new playlist given
+  const id = "t" + generateUid();
 
+  // Create a new playlist object with the given information
+  const newPlaylist = {
+    id: id,
+    name: name,
+    tracks: []
+  };
+
+  // Adds new playlist to the library
+  library.playlists[id] = newPlaylist;
+  console.log(`Playlist ${id} added to the library`);
 }
+
+// Test Code with example usage
+addPlaylist("New Name"); // Given a completely new playlist
+console.log("addPlaylist function output when given a new playlist:");
+console.log(library.playlists); // Prints updated library to verify
+addPlaylist("Coding Music"); // Given a playlist that is already in the library
+console.log("addPlaylist function output when given a playlist that is already in the library:");
+console.log(library.playlists); // Prints updated library to verify
+console.log("----------");
 
 
 // STRETCH:
